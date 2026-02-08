@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 450px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #ff6f91;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    /* CENTER PANDA */
+    .main-panda img {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    /* FLOATING PANDAS */
+    .float-panda {
+      position: absolute;
+      width: 120px;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0.95;
+    }
+
+    .p1 { top: 5%; left: 8%; }
+    .p2 { top: 8%; right: 8%; animation-delay: 1s; }
+    .p3 { bottom: 8%; left: 10%; animation-delay: 2s; }
+    .p4 { bottom: 10%; right: 10%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #ddd;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating pandas -->
+  <img src="tenor (4).gif" class="float-panda p1">
+  <img src="tenor (3).gif" class="float-panda p2">
+  <img src="tenor (2).gif" class="float-panda p3">
+  <img src="tenor (1).gif" class="float-panda p4">
+
+  <div class="card">
+    <h1>Will you be my (Avi) Valentine? 💖</h1>
+    <h2>The supercalifragilisticexpialidocious girl ✨</h2>
+
+    <div class="main-panda">
+      <img src="tenor (5).gif" alt="cute panda">
+    </div>
+
+    <button id="yes" onclick="yesClicked()">Yes 💕</button>
+    <button id="no" onmouseover="moveNo()">No 😢</button>
+  </div>
+
+  <script>
+    // No button moves away
+    let moved = false;
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      noBtn.style.transform = moved
+        ? "translateX(-140px)"
+        : "translateX(140px)";
+      moved = !moved;
+    }
+
+    // YES button grows FAST
+    let scale = 1;
+    const yesBtn = document.getElementById("yes");
+
+    setInterval(() => {
+      scale += 0.15;
+      yesBtn.style.transform = `scale(${scale})`;
+    }, 500);
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="text-align:center; font-family:Arial;">
+          <img src="tenor.gif" style="width:220px;">
+          <h1 style="color:#ff4d6d;">
+            Supercalifragilisticexpialidocious YES!!! 🐼💘
+          </h1>
+          <p style="font-size:22px; margin-top:15px;">
+            mam boka nama odege poyi nammaa first date ge 💕
+          </p>
+          <p style="margin-top:10px;">— Love, Avi 💌</p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
